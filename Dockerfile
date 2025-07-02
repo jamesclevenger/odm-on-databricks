@@ -13,7 +13,7 @@ ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/code/SuperBuild/install/lib"
 WORKDIR /code
 
 # Copy everything
-COPY ../ODM ./
+COPY . ./
 
 # Use old-releases for 21.04
 RUN printf "deb http://old-releases.ubuntu.com/ubuntu/ hirsute main restricted\ndeb http://old-releases.ubuntu.com/ubuntu/ hirsute-updates main restricted\ndeb http://old-releases.ubuntu.com/ubuntu/ hirsute universe\ndeb http://old-releases.ubuntu.com/ubuntu/ hirsute-updates universe\ndeb http://old-releases.ubuntu.com/ubuntu/ hirsute multiverse\ndeb http://old-releases.ubuntu.com/ubuntu/ hirsute-updates multiverse\ndeb http://old-releases.ubuntu.com/ubuntu/ hirsute-backports main restricted universe multiverse" > /etc/apt/sources.list
@@ -58,6 +58,8 @@ RUN apt-get update \
     bash \
     sudo \
     coreutils \
+    wget \
+    unzip \
     procps \
     curl \
     fuse \
